@@ -2,7 +2,7 @@
 #LIST="newsumonts@gmail.com sumonta@mobilewalla.com"
 LIST="sumonta@mobilewalla.com"
 hostname="vpc-prod-vertex03"
-
+server_url="http://192.168.162.128:9192/myapp/Error_track/"
 tail -fn0  /var/log/auth.log| \
 while read line ; do
         echo "$line" | egrep 'WinNotify Unable to send message|AMQP error for winNotify|configure exchanges are : 0 check config properties
@@ -16,7 +16,7 @@ log_check.txt
 #               echo Email sent
                 log=$(cat "log_check.txt")
                 echo ------ $log
-                curl -I -G --data-urlencode "hostname=$hostname" --data-urlencode "log=$log" http://192.168.162.128:9192/myapp/Error_track/
+                curl -I -G --data-urlencode "hostname=$hostname" --data-urlencode "log=$log" $server_url
 #               echo log sent success
 
         fi
