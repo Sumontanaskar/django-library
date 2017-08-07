@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+{% block title%}Error_track{% endblock %}
+
+{% block body %}
+    <head>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
+        </style>
+
+    </head>
+<body>
+        <table style="width:80%">
+            <tr>
+                <th>Host Name</th>
+                <th>Date</th>
+                <th>Log info</th>
+                <th>Count</th>
+            </tr>
+    {% for data in all_host%}
+     	<tr>
+		    <td>{{data.hostname}}</td>
+            <td>{{data.date}}</td>
+            <td>{{data.log}}</td>
+            <td>{{data.c}}</td>
+            </tr>
+    {% endfor%}
+        </table>
+        <br>
+        <h2>{{no_data}}</h2>
+        <br>
+        <h2>{{error}}</h2>
+    </body>
+    </html>
+{% endblock %}
