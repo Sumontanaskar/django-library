@@ -12,9 +12,8 @@ To run the project:
 4. cd Django
 5. git clone https://github.com/Sumontanaskar/django_local_library.git
 6. cd django_local_library
-7. pip install django
-8. pip install django_chartit
-9. python manage.py makemigrations
-10. python manage.py migrate
-11. python manage.py runserver 0.0.0.0:9192
-12. Add server listen IP in the setting Allowed_hosts line
+7. pip install -r requirements.txt
+8. python manage.py makemigrations
+9. python manage.py migrate
+10. python manage.py runserver 0.0.0.0:9192
+11. Add server listen IP in the setting Allowed_hosts line
