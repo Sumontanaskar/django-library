@@ -16,3 +16,4 @@ To run the project:
 8. python manage.py makemigration
 9. python manage.py makemigrations
 10. python manage.py runserver 0.0.0.0:9192
+11. Add server listen IP in the setting Allowed_hosts line
