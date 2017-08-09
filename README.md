@@ -10,7 +10,7 @@ To run the project:
 2. virtualenv Django #Create virtual enviorment named Django 
 3. source Django/bin/activate
 4. cd Django
-5. git https://github.com/Sumontanaskar/django_local_library.git
+5. git clone https://github.com/Sumontanaskar/django_local_library.git
 6. cd django_local_library
 7. pip install django
 8. python manage.py makemigration
