@@ -25,7 +25,7 @@ SECRET_KEY = '$c*&=pr*=mz@dd4)aoi&+dcqw=9v)8bs27hc(q-qjh+mr^g$%)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.86.0.96', 'elk.mobilewalla.com', 'localhost', '192.168.10.115']
+ALLOWED_HOSTS = ['localhost', '192.168.10.115']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp.apps.MyappConfig',
+    'chartit',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = "static"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

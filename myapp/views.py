@@ -7,7 +7,6 @@ from .forms import handle_uploaded_file, handle_file, Log_process
 import os
 from datetime import datetime
 
-
 # Create your views here.
 def index(request):
     all_host = Dreamreal.objects.all()
@@ -150,4 +149,40 @@ def Log_track(request):
         return render(request, 'myapp/Log_track_report.html', {'all_host': search, 'no_data': no_data})
     except Exception as error:
         return render(request, 'myapp/Log_track_report.html', {'error': error})
+#====
 
+from chartit import DataPool, Chart
+
+def log_chart_view(request):
+    # Step 1: Create a DataPool with the data we want to retrieve.
+    logdata = \
+        DataPool(
+            series=
+            [{'options': {
+                'source': Error.objects.all()},
+                'terms': [
+                    'hostname',
+                    'date',
+                    'log',
+                    'c']}
+            ])
+    # Step 2: Create the Chart object
+    cht = Chart(
+        datasource=logdata,
+        series_options=
+        [{'options': {
+            'type': 'line',
+            'stacking': False},
+            'terms': {
+                'hostname': [
+                    'c',
+                    'log']
+            }}],
+        chart_options=
+        {'title': {
+            'text': 'All hosts log track report'},
+            'xAxis': {
+                'title': {
+                    'text': 'Host Name'}}})
+    print cht
+    return render_to_response('logchart.html', {'logchart': cht})

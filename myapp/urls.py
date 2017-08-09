@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^Error_track/$', views.Error_track, name='Error_track'),
     #/myapp/Log_track   Log Visualized link
     url(r'^Log_track/$', views.Log_track, name='Log_track'),
+    #/myapp/log_chart_view
+    url(r'^log_chart_view/$', views.log_chart_view, name='log_chart_view'),
 ]
 
 if settings.DEBUG:

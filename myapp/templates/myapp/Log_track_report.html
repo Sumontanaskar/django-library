@@ -3,6 +3,10 @@
 
 {% block body %}
     <head>
+
+        <script>
+            window.setTimeout(function () {location.href = "{{ redirect_url }}";}, 60000);
+        </script>
         <style>
         table, th, td {
             border: 1px solid black;
