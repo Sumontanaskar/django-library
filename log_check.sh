@@ -1,8 +1,9 @@
 #!/bin/bash
 #LIST="newsumonts@gmail.com sumonta@mobilewalla.com"
 LIST="sumonta@mobilewalla.com"
-hostname="vpc-prod-vertex03"
+hostname=`hostname`
 server_url="http://192.168.162.128:9192/myapp/Error_track/"
+echo $hostname $server_url $LIST
 tail -fn0  /var/log/auth.log| \
 while read line ; do
         echo "$line" | egrep 'WinNotify Unable to send message|AMQP error for winNotify|configure exchanges are : 0 check config properties
