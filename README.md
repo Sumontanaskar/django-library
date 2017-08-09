@@ -18,4 +18,4 @@ To run the project:
 10. python manage.py runserver 0.0.0.0:9192
 11. Add server listen IP in the setting Allowed_hosts line
 
-Changed to readme file. Push 01
+Changed to readme file. Push 02
