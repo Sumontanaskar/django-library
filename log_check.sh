@@ -3,7 +3,7 @@
 LIST="sumonta@mobilewalla.com"
 hostname=`hostname`
 Log_location="/var/log/auth.log"
-server_url="http://192.168.162.128:9192/myapp/Error_track/"
+server_url="http://52.86.0.96:9192/myapp/Error_track/"
 echo $hostname $server_url $LIST
 
 tail -fn0 $Log_location| \
