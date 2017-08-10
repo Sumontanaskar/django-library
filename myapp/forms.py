@@ -3,10 +3,11 @@ import datetime
 
 
 def Dateformat(date):
-    try :
+    try:
         return datetime.datetime.strptime(date, '%m-%d-%Y').strftime('%Y-%m-%d')
     except:
         return datetime.datetime.strptime(date, '%m-%d-%y').strftime('%Y-%m-%d')
+
 
 def handle_uploaded_file(f):
     i = 0
@@ -27,7 +28,7 @@ def handle_uploaded_file(f):
 
 
 def DataValidate(hostname, date):
-    try :
+    try:
         datetime.datetime.strptime(date, '%m-%d-%Y').strftime('%Y-%m-%d')
         return True
     except:
@@ -35,8 +36,9 @@ def DataValidate(hostname, date):
             pass
             return False
 
+
 def handle_file(f):
-    #print f.readlines()
+    # print f.readlines()
     i = 0
     for chunk in f:
         print chunk
@@ -57,8 +59,7 @@ def handle_file(f):
         i += 1
 
 
-
-#===============
+# ===============
 def Log_process(hostname, log):
     print hostname, log
     date = datetime.datetime.now().date()
@@ -81,3 +82,43 @@ def Log_process(hostname, log):
         b_data.save()
         return 200
 
+
+# chartview
+from chartit import DataPool, Chart
+
+
+def chart_view(log):
+    logdata = \
+        DataPool(
+            series=
+            [{'options': {
+                'source': Error.objects.filter(log=log)},
+                'terms': [
+                    'hostname',
+                    'date',
+                    'log',
+                    'c']}
+            ])
+
+    # Step 2: Create the Chart object
+    chart = Chart(
+        datasource=logdata,
+        series_options=
+        [{'options': {
+            'type': 'line',
+            'stacking': False},
+            'terms': {
+                'hostname': [
+                    'c']
+            }}],
+        chart_options=
+        {'title': {
+            'text': log},
+            'xAxis': {
+                'title': {
+                    'text': 'Host Name'}},
+            'yAxis': {
+                'title': {
+                    'text': 'Count per day'}}})
+
+    return chart

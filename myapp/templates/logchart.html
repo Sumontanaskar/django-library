@@ -5,10 +5,20 @@
     <!-- the charts need to be rendered to                             -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
-
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
     {% load chartit %}
-    {{ logchart|load_charts:"container" }}
+    {{ logchart|load_charts:"chart_1,chart_2,chart_3,chart_4,chart_5,chart_6,chart_7,chart_8,chart_9,chart_10" }}
+
 </head>
 <body>
-    <div id='container'> Chart will be rendered here logchart </div>
+    <div id='chart_1'style="width: 600px;"> Chart will be rendered here logchart </div>
+    <div id='chart_2'style="width: 600px;"> Chart will be rendered here logchart </div>
+    <div id='chart_3'style="width: 600px;"> Chart will be rendered here logchart </div>
+    <div id='chart_4'style="width: 600px;"> Chart will be rendered here logchart </div>
+    <div id='chart_5'style="width: 700px;"> Chart will be rendered here logchart </div>
+    <div id='chart_6'style="width: 700px;"> Chart will be rendered here logchart </div>
+    <div id='chart_7'style="width: 700px;"> Chart will be rendered here logchart </div>
+    <div id='chart_8'style="width: 700px;"> Chart will be rendered here logchart </div>
+    <div id='chart_9'style="width: 700px;"> Chart will be rendered here logchart </div>
+    <div id='chart_10'style="width: 700px;"> Chart will be rendered here logchart </div>
 </body>

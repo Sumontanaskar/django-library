@@ -3,7 +3,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from .models import Dreamreal, Error
 from django.db.models import Q
 from django.core.files.storage import FileSystemStorage
-from .forms import handle_uploaded_file, handle_file, Log_process
+from .forms import handle_uploaded_file, handle_file, Log_process, chart_view
 import os
 from datetime import datetime
 
@@ -151,38 +151,37 @@ def Log_track(request):
         return render(request, 'myapp/Log_track_report.html', {'error': error})
 #====
 
-from chartit import DataPool, Chart
+
 
 def log_chart_view(request):
     # Step 1: Create a DataPool with the data we want to retrieve.
-    logdata = \
-        DataPool(
-            series=
-            [{'options': {
-                'source': Error.objects.all()},
-                'terms': [
-                    'hostname',
-                    'date',
-                    'log',
-                    'c']}
-            ])
-    # Step 2: Create the Chart object
-    cht = Chart(
-        datasource=logdata,
-        series_options=
-        [{'options': {
-            'type': 'line',
-            'stacking': False},
-            'terms': {
-                'hostname': [
-                    'c',
-                    'log']
-            }}],
-        chart_options=
-        {'title': {
-            'text': 'All hosts log track report'},
-            'xAxis': {
-                'title': {
-                    'text': 'Host Name'}}})
-    print cht
-    return render_to_response('logchart.html', {'logchart': cht})
+    #Define log
+    log_1 = 'WinNotify Unable to send message'
+    log_2 = 'AMQP error for winNotify'
+    log_3 = 'configure exchanges are : 0 check config properties exchanges.path'
+    log_4 = 'AMQP error for bidId'
+    log_5 = 'Error sending msg to kafka'
+    log_6 = 'Error status send by mq event bus send'
+    log_7 = 'MWBidRequestHandler::Unable to send BID message'
+    log_8 = 'Error getting value from redis'
+    log_9 = 'Error deploying RabbitMQ'
+    log_10 = 'AMQP Deployment Error'
+
+    chart_1=chart_view(log_1)
+    chart_2=chart_view(log_2)
+    chart_3=chart_view(log_3)
+    chart_4=chart_view(log_4)
+    chart_5=chart_view(log_5)
+    chart_6=chart_view(log_6)
+    chart_7=chart_view(log_7)
+    chart_8=chart_view(log_8)
+    chart_9=chart_view(log_9)
+    chart_10=chart_view(log_10)
+    return render_to_response('logchart.html',
+                              {
+                                  'logchart':
+                                      [
+                                          chart_1, chart_2, chart_3, chart_4, chart_5, chart_6, chart_7, chart_8,chart_9, chart_10
+                                      ]
+                                  }
+                              )
