@@ -126,7 +126,7 @@ def Log_track(request):
     h = request.GET.get("hostname")
     d = request.GET.get("date")
     no_data = ''
-    print h, d
+
     try:
         if not h and not d:
             all_host = Error.objects.order_by('-date')
@@ -153,9 +153,10 @@ def Log_track(request):
 
 
 
-def log_chart_view(request):
+def log_chart_view(request, date=None):
     # Step 1: Create a DataPool with the data we want to retrieve.
     #Define log
+    d = request.GET.get("date")
     log_1 = 'WinNotify Unable to send message'
     log_2 = 'AMQP error for winNotify'
     log_3 = 'configure exchanges are : 0 check config properties exchanges.path'
@@ -166,17 +167,16 @@ def log_chart_view(request):
     log_8 = 'Error getting value from redis'
     log_9 = 'Error deploying RabbitMQ'
     log_10 = 'AMQP Deployment Error'
-
-    chart_1=chart_view(log_1)
-    chart_2=chart_view(log_2)
-    chart_3=chart_view(log_3)
-    chart_4=chart_view(log_4)
-    chart_5=chart_view(log_5)
-    chart_6=chart_view(log_6)
-    chart_7=chart_view(log_7)
-    chart_8=chart_view(log_8)
-    chart_9=chart_view(log_9)
-    chart_10=chart_view(log_10)
+    chart_1=chart_view(log_1, d)
+    chart_2=chart_view(log_2, d)
+    chart_3=chart_view(log_3, d)
+    chart_4=chart_view(log_4, d)
+    chart_5=chart_view(log_5, d)
+    chart_6=chart_view(log_6, d)
+    chart_7=chart_view(log_7, d)
+    chart_8=chart_view(log_8, d)
+    chart_9=chart_view(log_9, d)
+    chart_10=chart_view(log_10, d)
     return render_to_response('logchart.html',
                               {
                                   'logchart':

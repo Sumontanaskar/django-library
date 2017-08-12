@@ -60,6 +60,9 @@ def handle_file(f):
 
 
 # ===============
+
+
+
 def Log_process(hostname, log):
     print hostname, log
     date = datetime.datetime.now().date()
@@ -85,14 +88,17 @@ def Log_process(hostname, log):
 
 # chartview
 from chartit import DataPool, Chart
-
-
-def chart_view(log):
+def chart_view(log, d):
+    if not d:
+        d = datetime.datetime.now().date()
+        d = d.strftime('%Y-%m-%d')
+        #d = '2017-08-12'
+        #print 'Date:',d
     logdata = \
         DataPool(
             series=
             [{'options': {
-                'source': Error.objects.filter(log=log)},
+                'source': Error.objects.filter(log=log, date=d)},
                 'terms': [
                     'hostname',
                     'date',
@@ -120,5 +126,6 @@ def chart_view(log):
             'yAxis': {
                 'title': {
                     'text': 'Count per day'}}})
-
     return chart
+
+

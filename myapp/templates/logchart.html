@@ -1,25 +1,26 @@
-<head>
+{% extends 'myapp/base.html' %}
+{% block title%}log_chart_view{% endblock %}
 
-    <!-- code to include the highcharts and jQuery libraries goes here -->
-    <!-- load_charts filter takes a comma-separated list of id's where -->
-    <!-- the charts need to be rendered to                             -->
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+{% block body %}
+<head>
+    <script>
+            window.setTimeout(function () {location.href = "{{ redirect_url }}";}, 60000);
+    </script>
     {% load chartit %}
     {{ logchart|load_charts:"chart_1,chart_2,chart_3,chart_4,chart_5,chart_6,chart_7,chart_8,chart_9,chart_10" }}
-
 </head>
 <body>
-    <div id='chart_1'style="border: thin solid black; width: 650px; float: left"></div>
-    <div id='chart_2'style="border: thin solid black; width: 650px; float: right"></div>
-    <div id='chart_3'style="border: thin solid black; width: 650px; float: left"></div>
-    <div id='chart_4'style="border: thin solid black; width: 650px; float: right"></div>
-    <div id='chart_5'style="border: thin solid black; width: 650px; float: left"></div>
-    <div id='chart_6'style="border: thin solid black; width: 650px; float: right"></div>
-    <div id='chart_7'style="border: thin solid black; width: 650px; float: left"></div>
-    <div id='chart_8'style="border: thin solid black; width: 650px; float: right"></div>
-    <div id='chart_9'style="border: thin solid black; width: 650px; float: left"></div>
-    <div id='chart_10'style="border: thin solid black; width: 650px; float: right"></div>
+    <div id='chart_1'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_2'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_3'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_4'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_5'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_6'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_7'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_8'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_9'style="border: thin solid black; overflow: hidden;"></div>
+    <div id='chart_10'style="border: thin solid black; overflow: hidden;"></div>
 
 </body>
+
+{% endblock %}
