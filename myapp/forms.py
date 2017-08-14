@@ -64,13 +64,13 @@ def handle_file(f):
 
 
 def Log_process(hostname, log):
-    print hostname, log
+    #print hostname, log
     date = datetime.datetime.now().date()
-    print date
+    #print date
     a_data = Error.objects.filter(hostname=hostname, date=date, log=log)
     data = Error()
     if not a_data:
-        print 'New data'
+     #   print 'New data'
         data.hostname = hostname
         data.date = date
         data.log = log
@@ -81,7 +81,7 @@ def Log_process(hostname, log):
         print 'Old data found'
         b_data = Error.objects.get(hostname=hostname, date=date, log=log)
         b_data.c = b_data.c + 1
-        print b_data
+       # print b_data
         b_data.save()
         return 200
 
@@ -129,3 +129,11 @@ def chart_view(log, d):
     return chart
 
 
+def remove_old_data(old_data):
+    how_many_days = (datetime.datetime.now() - datetime.timedelta(days=old_data)).strftime('%Y-%m-%d')
+    d = Error.objects.filter(date__lte=how_many_days)
+    if not d:
+        return 'No data for delete'
+    c = d.count()
+    d.delete()
+    return c

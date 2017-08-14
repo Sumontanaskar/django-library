@@ -3,7 +3,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from .models import Dreamreal, Error
 from django.db.models import Q
 from django.core.files.storage import FileSystemStorage
-from .forms import handle_uploaded_file, handle_file, Log_process, chart_view
+from .forms import handle_uploaded_file, handle_file, Log_process, chart_view, remove_old_data
 import os
 from datetime import datetime
 
@@ -117,8 +117,11 @@ def AutoUpload(request):
 #==========================
 
 def Error_track(request):
+    old_data = 3
     hostname = request.GET.get('hostname')
     log = request.GET.get('log')
+    r = remove_old_data(old_data)
+    print r
     code = Log_process(hostname, log)
     return HttpResponse(status=code)
 
@@ -126,7 +129,6 @@ def Log_track(request):
     h = request.GET.get("hostname")
     d = request.GET.get("date")
     no_data = ''
-
     try:
         if not h and not d:
             all_host = Error.objects.order_by('-date')
