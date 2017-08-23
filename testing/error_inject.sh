@@ -2,8 +2,8 @@
 #
 # Example error_injection.sh vpc-prod-vertex03
 #
-#Inject_string="52.86.0.96:9192"
-Inject_string="localhost:9192"
+Inject_string="52.86.0.96:9192"
+#Inject_string="localhost:9192"
 function curl_post() {
 	log_1='WinNotify Unable to send message'
 	log_2='AMQP error for winNotify'
