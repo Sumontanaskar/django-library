@@ -187,3 +187,8 @@ def log_chart_view(request, date=None):
                                       ]
                                   }
                               )
+#
+# Set Static urls in page
+#
+def urls(request):
+        return render(request, 'myapp/urls.html')

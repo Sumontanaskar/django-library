@@ -1,0 +1,60 @@
+<head>
+    <title>URLS</title>
+</head>
+
+{% extends 'myapp/base.html' %}
+
+
+{% block body %}
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+
+<body>
+
+    <font face = "Bedrock" size = "4">
+        <a href="http://production.execution02.esearch.mobilewalla.com:9200/_plugin/hq/#" target="_blank" rel='stylesheet' >1. Production execution02 HQ</a> [Elastic Search Management and Monitoring tool for Cluster Health and Indices] <br>
+        <a href="http://production.execution02.esearch.mobilewalla.com:9200/_plugin/kopf/#/cluster" target="_blank">2. Production execution02 KOPF </a> [Web Administration tool for elastic search which offers an easy way of performing common tasks on an elastic search cluster] <br>
+        <a href="http://production.planning.esearch.mobilewalla.com:9200/_plugin/kopf/#!/cluster#cluster" target="_blank">3. Production Planning HQ</a> [Elastic Search Management and Monitoring tool] <br>
+        <a href="http://jenkins.mobilewalla.com:8080/login?from=%2F" target="_blank">4. jenkins</a> [Continuous Integration Tool for running tests automatically every time one pushes new code into the source repository]	<br>
+        <a href="http://prod-ui.mobilewalla.com/DSP/login/auth" target="_blank">5. Login - MWDSP </a> [Campaign tracking tool for Mobilewalla] <br>
+        <a href="http://elk.mobilewalla.com:8880/" target="_blank">6. Kibana </a> [Helps visualizing our Elastic search data] <br>
+        <a href="https://mobilewalla.slack.com/threads/files/" target="_blank">7. Slack Chat</a><br>
+        <a href="https://login.sling.is/" target="_blank">8. Engineering Shift Schedule</a>- Sling [Tool for tracking Shifts assigned to Engineering Resources]<br>
+        <a href="http://owncloud.wordsterbeta.com/owncloud/index.php" target="_blank">9. OwnCloud</a>[Self-hosted file sync and share server where MW Engineering Data is Stored]	<br>
+        <a href="https://mw-internal.signin.aws.amazon.com/console" target="_blank">10. Login - AWS Console</a> [All AWS services and servers can be found here] <br>
+        <a href="https://status.aws.amazon.com/" target="_blank">11. AWS Service Health Dashboard</a><br>
+        <a href="http://phabricator.mobilewalla.com/w/" target="_blank">11. Login - Phabricator</a>[Implementation Tracking Tool]<br>
+        <a href="http://elk.mobilewalla.com:9200/_plugin/hq/#" target="_blank">12. ELK HQ</a> <br>
+        <a href="https://ipa.mobilewalla.net/ipa/ui/" target="_blank">13. IPA Server</a> [Integrated Identity and Authentication solution for Linux/UNIX networked environments. Provides centralized authentication, authorization and account information by storing data about user, groups, hosts and other objects necessary to manage the security aspects of a network of computers.]	<br>
+        <a href="https://zimbra.mobilewalla.net:7071/zimbraAdmin/" target="_blank">14. Zimbra Admin</a>[Email Server]<br>
+        <a href="http://zimbra.mobilewalla.net/" target="_blank">15. Zimbra Client</a> [Email Client] <br>
+        <a href="http://elk.mobilewalla.com:9192/myapp/" target="_blank">16. MW Dashboard</a><br>
+        <a href="http://kafkamanager.mobilewalla.com:9000/clusters/mobilewalla-kafka-production/brokers" target="_blank">17. Mobilewalla-kafka-production</a> [Information of Broker's Query per Second (Bytes In/Out) and their combined metrics] <br>
+    </font>
+
+</body>
+</html>
+{% endblock %}

@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^Log_track/$', views.Log_track, name='Log_track'),
     #/myapp/log_chart_view
     url(r'^log_chart_view/$', views.log_chart_view, name='log_chart_view'),
+    #/myapp/URLS
+    url(r'^URLS/$', views.urls, name='urls'),
 ]
 
 if settings.DEBUG:

@@ -8,5 +8,5 @@ if [ -n "$output" ]; then
   echo "$output"
 else
  echo "Not Running"
- python manage.py runserver 0.0.0.0:9192
+ python manage.py runserver 0.0.0.0:9193
 fi
